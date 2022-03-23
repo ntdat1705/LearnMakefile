@@ -1,0 +1,297 @@
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+FLASH            0x0000000008000000 0x0000000000010000 xr
+RESULT_SRAM      0x0000000020000000 0x0000000000000004 xrw
+SRAM             0x0000000020000004 0x0000000000004ffc xrw
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+
+.text           0x0000000008000000      0x6c8
+ *(.isr_vector)
+ .isr_vector    0x0000000008000000      0x188 ../output/gpio_TS_004/env.o
+                0x0000000008000000                vectors
+ *(.text)
+ .text          0x0000000008000188      0x190 ../output/gpio_TS_004/gpio.o
+                0x0000000008000188                GPIO_InitPC13
+                0x00000000080001cc                GPIO_InitPA0
+                0x0000000008000210                GPIO_SetPinPC13
+                0x000000000800022c                GPIO_ResetPinPC13
+                0x0000000008000248                GPIO_TogglePinPC13
+                0x0000000008000264                GPIO_ReadPinPA0
+                0x0000000008000288                GPIO_InitExtiPA0
+ .text          0x0000000008000318        0xe ../output/gpio_TS_004/gpio_TS_004.o
+                0x0000000008000318                main
+ .text          0x0000000008000326       0x18 ../output/gpio_TS_004/gpio_TC_004.o
+                0x0000000008000326                GPIO_TC_004
+ *fill*         0x000000000800033e        0x2 
+ .text          0x0000000008000340       0x40 ../output/gpio_TS_004/result.o
+                0x0000000008000340                CHECK_RESULT
+                0x0000000008000368                RESET_RESULT
+ .text          0x0000000008000380       0xf8 ../output/gpio_TS_004/env.o
+                0x0000000008000380                Reset_Handler
+                0x0000000008000404                RTC_Alarm_IRQHandler
+                0x0000000008000404                HASH_RNG_IRQHandler
+                0x0000000008000404                EXTI2_IRQHandler
+                0x0000000008000404                TIM8_CC_IRQHandler
+                0x0000000008000404                TIM1_CC_IRQHandler
+                0x0000000008000404                DMA2_Stream5_IRQHandler
+                0x0000000008000404                DMA1_Stream5_IRQHandler
+                0x0000000008000404                SysTick_Handler
+                0x0000000008000404                PVD_IRQHandler
+                0x0000000008000404                SDIO_IRQHandler
+                0x0000000008000404                TAMP_STAMP_IRQHandler
+                0x0000000008000404                CAN2_RX1_IRQHandler
+                0x0000000008000404                EXTI3_IRQHandler
+                0x0000000008000404                TIM8_TRG_COM_TIM14_IRQHandler
+                0x0000000008000404                TIM1_UP_TIM10_IRQHandler
+                0x0000000008000404                TIM8_UP_TIM13_IRQHandler
+                0x0000000008000404                I2C3_ER_IRQHandler
+                0x0000000008000404                I2C2_EV_IRQHandler
+                0x0000000008000404                DMA1_Stream2_IRQHandler
+                0x0000000008000404                CAN1_RX0_IRQHandler
+                0x0000000008000404                FPU_IRQHandler
+                0x0000000008000404                OTG_HS_WKUP_IRQHandler
+                0x0000000008000404                CAN2_SCE_IRQHandler
+                0x0000000008000404                DMA2_Stream2_IRQHandler
+                0x0000000008000404                SPI1_IRQHandler
+                0x0000000008000404                TIM6_DAC_IRQHandler
+                0x0000000008000404                TIM1_BRK_TIM9_IRQHandler
+                0x0000000008000404                DCMI_IRQHandler
+                0x0000000008000404                CAN2_RX0_IRQHandler
+                0x0000000008000404                DMA2_Stream3_IRQHandler
+                0x0000000008000404                USART6_IRQHandler
+                0x0000000008000404                USART3_IRQHandler
+                0x0000000008000404                CRYP_IRQHandler
+                0x0000000008000404                CAN1_RX1_IRQHandler
+                0x0000000008000404                UART5_IRQHandler
+                0x0000000008000404                DMA2_Stream0_IRQHandler
+                0x0000000008000404                TIM4_IRQHandler
+                0x0000000008000404                I2C1_EV_IRQHandler
+                0x0000000008000404                DMA1_Stream6_IRQHandler
+                0x0000000008000404                DMA1_Stream1_IRQHandler
+                0x0000000008000404                UART4_IRQHandler
+                0x0000000008000404                TIM3_IRQHandler
+                0x0000000008000404                RCC_IRQHandler
+                0x0000000008000404                TIM8_BRK_TIM12_IRQHandler
+                0x0000000008000404                Default_Handler
+                0x0000000008000404                EXTI15_10_IRQHandler
+                0x0000000008000404                ADC_IRQHandler
+                0x0000000008000404                DMA1_Stream7_IRQHandler
+                0x0000000008000404                TIM7_IRQHandler
+                0x0000000008000404                CAN2_TX_IRQHandler
+                0x0000000008000404                TIM5_IRQHandler
+                0x0000000008000404                DMA2_Stream7_IRQHandler
+                0x0000000008000404                I2C3_EV_IRQHandler
+                0x0000000008000404                EXTI9_5_IRQHandler
+                0x0000000008000404                RTC_WKUP_IRQHandler
+                0x0000000008000404                ETH_WKUP_IRQHandler
+                0x0000000008000404                SPI2_IRQHandler
+                0x0000000008000404                OTG_HS_EP1_IN_IRQHandler
+                0x0000000008000404                DMA1_Stream0_IRQHandler
+                0x0000000008000404                CAN1_TX_IRQHandler
+                0x0000000008000404                EXTI4_IRQHandler
+                0x0000000008000404                FSMC_IRQHandler
+                0x0000000008000404                ETH_IRQHandler
+                0x0000000008000404                OTG_HS_EP1_OUT_IRQHandler
+                0x0000000008000404                WWDG_IRQHandler
+                0x0000000008000404                TIM2_IRQHandler
+                0x0000000008000404                OTG_FS_WKUP_IRQHandler
+                0x0000000008000404                TIM1_TRG_COM_TIM11_IRQHandler
+                0x0000000008000404                OTG_HS_IRQHandler
+                0x0000000008000404                EXTI1_IRQHandler
+                0x0000000008000404                USART2_IRQHandler
+                0x0000000008000404                I2C2_ER_IRQHandler
+                0x0000000008000404                DMA2_Stream1_IRQHandler
+                0x0000000008000404                CAN1_SCE_IRQHandler
+                0x0000000008000404                FLASH_IRQHandler
+                0x0000000008000404                DMA2_Stream4_IRQHandler
+                0x0000000008000404                USART1_IRQHandler
+                0x0000000008000404                OTG_FS_IRQHandler
+                0x0000000008000404                SPI3_IRQHandler
+                0x0000000008000404                DMA1_Stream4_IRQHandler
+                0x0000000008000404                I2C1_ER_IRQHandler
+                0x0000000008000404                DMA2_Stream6_IRQHandler
+                0x0000000008000404                DMA1_Stream3_IRQHandler
+                0x000000000800040a                NMI_Handler
+                0x0000000008000410                HardFault_Handler
+                0x0000000008000416                MemManage_Handler
+                0x000000000800041c                BusFault_Handler
+                0x0000000008000422                UsageFault_Handler
+                0x0000000008000428                SVC_Handler
+                0x000000000800042e                DebugMon_Handler
+                0x0000000008000434                PendSV_Handler
+                0x000000000800043a                EXTI0_IRQHandler
+ .text          0x0000000008000478      0x24e ../output/gpio_TS_004/core_cm3.o
+                0x0000000008000478                __get_PSP
+                0x0000000008000486                __set_PSP
+                0x0000000008000490                __get_MSP
+                0x000000000800049e                __set_MSP
+                0x00000000080004a8                __get_BASEPRI
+                0x00000000080004c4                __set_BASEPRI
+                0x00000000080004dc                __get_PRIMASK
+                0x00000000080004f8                __set_PRIMASK
+                0x0000000008000510                __get_FAULTMASK
+                0x000000000800052c                __set_FAULTMASK
+                0x0000000008000544                __get_CONTROL
+                0x0000000008000560                __set_CONTROL
+                0x0000000008000578                __REV
+                0x0000000008000596                __REV16
+                0x00000000080005b6                __REVSH
+                0x00000000080005d6                __RBIT
+                0x00000000080005f6                __LDREXB
+                0x0000000008000616                __LDREXH
+                0x0000000008000636                __LDREXW
+                0x0000000008000656                __STREXB
+                0x000000000800067c                __STREXH
+                0x00000000080006a2                __STREXW
+ *(.rodata)
+                0x00000000080006c8                . = ALIGN (0x4)
+ *fill*         0x00000000080006c6        0x2 
+                0x00000000080006c8                _etext = .
+                0x00000000080006c8                _la_data = LOADADDR (.data)
+
+.glue_7         0x00000000080006c8        0x0
+ .glue_7        0x00000000080006c8        0x0 linker stubs
+
+.glue_7t        0x00000000080006c8        0x0
+ .glue_7t       0x00000000080006c8        0x0 linker stubs
+
+.vfp11_veneer   0x00000000080006c8        0x0
+ .vfp11_veneer  0x00000000080006c8        0x0 linker stubs
+
+.v4_bx          0x00000000080006c8        0x0
+ .v4_bx         0x00000000080006c8        0x0 linker stubs
+
+.iplt           0x00000000080006c8        0x0
+ .iplt          0x00000000080006c8        0x0 ../output/gpio_TS_004/gpio_TS_004.o
+
+.rel.dyn        0x00000000080006c8        0x0
+ .rel.iplt      0x00000000080006c8        0x0 ../output/gpio_TS_004/gpio_TS_004.o
+
+.data           0x0000000020000004        0x0 load address 0x00000000080006c8
+                0x0000000020000004                _sdata = .
+ *(.data)
+ .data          0x0000000020000004        0x0 ../output/gpio_TS_004/gpio.o
+ .data          0x0000000020000004        0x0 ../output/gpio_TS_004/gpio_TS_004.o
+ .data          0x0000000020000004        0x0 ../output/gpio_TS_004/gpio_TC_004.o
+ .data          0x0000000020000004        0x0 ../output/gpio_TS_004/result.o
+ .data          0x0000000020000004        0x0 ../output/gpio_TS_004/env.o
+ .data          0x0000000020000004        0x0 ../output/gpio_TS_004/core_cm3.o
+                0x0000000020000004                . = ALIGN (0x4)
+                0x0000000020000004                _edata = .
+
+.igot.plt       0x0000000020000004        0x0 load address 0x00000000080006c8
+ .igot.plt      0x0000000020000004        0x0 ../output/gpio_TS_004/gpio_TS_004.o
+
+.bss            0x0000000020000004        0x0 load address 0x00000000080006c8
+                0x0000000020000004                _sbss = .
+ *(.bss)
+ .bss           0x0000000020000004        0x0 ../output/gpio_TS_004/gpio.o
+ .bss           0x0000000020000004        0x0 ../output/gpio_TS_004/gpio_TS_004.o
+ .bss           0x0000000020000004        0x0 ../output/gpio_TS_004/gpio_TC_004.o
+ .bss           0x0000000020000004        0x0 ../output/gpio_TS_004/result.o
+ .bss           0x0000000020000004        0x0 ../output/gpio_TS_004/env.o
+ .bss           0x0000000020000004        0x0 ../output/gpio_TS_004/core_cm3.o
+                0x0000000020000004                . = ALIGN (0x4)
+                0x0000000020000004                _ebss = .
+
+.result         0x0000000020000000        0x4
+ *(.result)
+ .result        0x0000000020000000        0x4 ../output/gpio_TS_004/result.o
+                0x0000000020000000                u32Result
+LOAD ../output/gpio_TS_004/gpio.o
+LOAD ../output/gpio_TS_004/gpio_TS_004.o
+LOAD ../output/gpio_TS_004/gpio_TC_004.o
+LOAD ../output/gpio_TS_004/result.o
+LOAD ../output/gpio_TS_004/env.o
+LOAD ../output/gpio_TS_004/core_cm3.o
+OUTPUT(../output/gpio_TS_004/gpio.elf elf32-littlearm)
+LOAD linker stubs
+
+.debug_info     0x0000000000000000      0xe4e
+ .debug_info    0x0000000000000000      0x446 ../output/gpio_TS_004/gpio.o
+ .debug_info    0x0000000000000446       0x82 ../output/gpio_TS_004/gpio_TS_004.o
+ .debug_info    0x00000000000004c8       0x7e ../output/gpio_TS_004/gpio_TC_004.o
+ .debug_info    0x0000000000000546       0x7e ../output/gpio_TS_004/result.o
+ .debug_info    0x00000000000005c4      0x31c ../output/gpio_TS_004/env.o
+ .debug_info    0x00000000000008e0      0x56e ../output/gpio_TS_004/core_cm3.o
+
+.debug_abbrev   0x0000000000000000      0x415
+ .debug_abbrev  0x0000000000000000      0x113 ../output/gpio_TS_004/gpio.o
+ .debug_abbrev  0x0000000000000113       0x46 ../output/gpio_TS_004/gpio_TS_004.o
+ .debug_abbrev  0x0000000000000159       0x44 ../output/gpio_TS_004/gpio_TC_004.o
+ .debug_abbrev  0x000000000000019d       0x77 ../output/gpio_TS_004/result.o
+ .debug_abbrev  0x0000000000000214      0x147 ../output/gpio_TS_004/env.o
+ .debug_abbrev  0x000000000000035b       0xba ../output/gpio_TS_004/core_cm3.o
+
+.debug_aranges  0x0000000000000000       0xc0
+ .debug_aranges
+                0x0000000000000000       0x20 ../output/gpio_TS_004/gpio.o
+ .debug_aranges
+                0x0000000000000020       0x20 ../output/gpio_TS_004/gpio_TS_004.o
+ .debug_aranges
+                0x0000000000000040       0x20 ../output/gpio_TS_004/gpio_TC_004.o
+ .debug_aranges
+                0x0000000000000060       0x20 ../output/gpio_TS_004/result.o
+ .debug_aranges
+                0x0000000000000080       0x20 ../output/gpio_TS_004/env.o
+ .debug_aranges
+                0x00000000000000a0       0x20 ../output/gpio_TS_004/core_cm3.o
+
+.debug_line     0x0000000000000000      0x629
+ .debug_line    0x0000000000000000      0x152 ../output/gpio_TS_004/gpio.o
+ .debug_line    0x0000000000000152       0x75 ../output/gpio_TS_004/gpio_TS_004.o
+ .debug_line    0x00000000000001c7       0x77 ../output/gpio_TS_004/gpio_TC_004.o
+ .debug_line    0x000000000000023e       0x51 ../output/gpio_TS_004/result.o
+ .debug_line    0x000000000000028f      0x1ba ../output/gpio_TS_004/env.o
+ .debug_line    0x0000000000000449      0x1e0 ../output/gpio_TS_004/core_cm3.o
+
+.debug_str      0x0000000000000000      0x5a7
+ .debug_str     0x0000000000000000      0x281 ../output/gpio_TS_004/gpio.o
+                                        0x2c6 (size before relaxing)
+ .debug_str     0x0000000000000281       0x43 ../output/gpio_TS_004/gpio_TS_004.o
+                                        0x15b (size before relaxing)
+ .debug_str     0x00000000000002c4       0x49 ../output/gpio_TS_004/gpio_TC_004.o
+                                        0x161 (size before relaxing)
+ .debug_str     0x000000000000030d       0x36 ../output/gpio_TS_004/result.o
+                                         0xca (size before relaxing)
+ .debug_str     0x0000000000000343       0xf8 ../output/gpio_TS_004/env.o
+                                        0x26a (size before relaxing)
+ .debug_str     0x000000000000043b      0x16c ../output/gpio_TS_004/core_cm3.o
+                                        0x2c3 (size before relaxing)
+
+.comment        0x0000000000000000       0x49
+ .comment       0x0000000000000000       0x49 ../output/gpio_TS_004/gpio.o
+                                         0x4a (size before relaxing)
+ .comment       0x0000000000000049       0x4a ../output/gpio_TS_004/gpio_TS_004.o
+ .comment       0x0000000000000049       0x4a ../output/gpio_TS_004/gpio_TC_004.o
+ .comment       0x0000000000000049       0x4a ../output/gpio_TS_004/result.o
+ .comment       0x0000000000000049       0x4a ../output/gpio_TS_004/env.o
+ .comment       0x0000000000000049       0x4a ../output/gpio_TS_004/core_cm3.o
+
+.ARM.attributes
+                0x0000000000000000       0x2d
+ .ARM.attributes
+                0x0000000000000000       0x2d ../output/gpio_TS_004/gpio.o
+ .ARM.attributes
+                0x000000000000002d       0x2d ../output/gpio_TS_004/gpio_TS_004.o
+ .ARM.attributes
+                0x000000000000005a       0x2d ../output/gpio_TS_004/gpio_TC_004.o
+ .ARM.attributes
+                0x0000000000000087       0x2d ../output/gpio_TS_004/result.o
+ .ARM.attributes
+                0x00000000000000b4       0x2d ../output/gpio_TS_004/env.o
+ .ARM.attributes
+                0x00000000000000e1       0x2d ../output/gpio_TS_004/core_cm3.o
+
+.debug_frame    0x0000000000000000      0x5ec
+ .debug_frame   0x0000000000000000       0xf0 ../output/gpio_TS_004/gpio.o
+ .debug_frame   0x00000000000000f0       0x2c ../output/gpio_TS_004/gpio_TS_004.o
+ .debug_frame   0x000000000000011c       0x2c ../output/gpio_TS_004/gpio_TC_004.o
+ .debug_frame   0x0000000000000148       0x58 ../output/gpio_TS_004/result.o
+ .debug_frame   0x00000000000001a0      0x12c ../output/gpio_TS_004/env.o
+ .debug_frame   0x00000000000002cc      0x320 ../output/gpio_TS_004/core_cm3.o

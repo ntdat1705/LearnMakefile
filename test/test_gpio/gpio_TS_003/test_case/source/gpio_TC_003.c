@@ -1,5 +1,4 @@
-#include "gpio_TC_001.h"
-
+#include "gpio_TC_003.h"
 
 /****************************************************************************************
 *                           Prototypes of the startup file 
@@ -12,14 +11,20 @@
 /*************************************************************************************************
 *                            Start with my code
 **************************************************************************************************/
-void GPIO_TC_001(void)
+void GPIO_TC_003(void)
 {
-	RESET_RESULT();
-	
 	GPIO_InitPC13();
-	GPIO_ResetPinPC13();
-	
-	CHECK_RESULT(1,1);
+	GPIO_SetPinPC13();
+	GPIO_InitPA0();
+	while(1)
+	{
+		if(GPIO_ReadPinPA0() == 0)
+		{
+			GPIO_ResetPinPC13();
+		}else{
+			GPIO_SetPinPC13();
+		}
+	}
 }
 
 

@@ -1,4 +1,4 @@
-
+#include "result.h"
 
 
 int u32Result __attribute__((section(".result")));
